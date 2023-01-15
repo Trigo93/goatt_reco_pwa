@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
+    <title>String recommendations</title>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}").then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <form action="{{ url_for('recommendation') }}" method="post">
+            <div class="row center" style="width: 80%;">
+                <div class="column">
+                    <div style="padding: 5px;">
+                        <b>Age:</b>
+                    </div>
+                    <input type="radio" name="age"  value="moins de 12ans">moins de 12ans<br>
+                    <input type="radio" name="age" value="entre 12ans et 60ans" checked>entre 12ans et 60ans<br>
+                    <input type="radio" name="age" value="plus de 60ans">plus de 60ans<br>                    
+                </div>
+                <div class="column">
+                    <div  style="padding: 5px;">
+                        <b>Fréquence de jeu:</b>
+                    </div>
+                    <input type="radio" name="play_freq" value="rarement">rarement<br>
+                    <input type="radio" name="play_freq" value="parfois" checked>parfois<br>
+                    <input type="radio" name="play_freq" value="souvent">souvent<br>
+                </div>
+                <div class="column">
+                    <div  style="padding: 5px;">
+                        <b>Fréquence de casse:</b>
+                    </div>
+                    <input type="radio" name="break_freq" value="rarement">rarement<br>
+                    <input type="radio" name="break_freq" value="parfois" checked>parfois<br>
+                    <input type="radio" name="break_freq" value="souvent">souvent<br>
+                </div>
+                <div class="column">
+                    <div  style="padding: 5px;">
+                        <b>Objectif:</b>
+                    </div>
+                    <input type="radio" name="goal" value="confort">confort<br>
+                    <input type="radio" name="goal" value="solidite" checked>solidite<br>
+                    <input type="radio" name="goal" value="performance">performance<br>
+                </div>
+                <div class="column">
+                    <div  style="padding: 5px;">
+                        <b>Es-tu blessé?</b>
+                    </div>
+                    <input type="radio" name="injury" value="true">oui<br>
+                    <input type="radio" name="injury" value="" checked>non<br> <!-- false string must be "" -->
+                </div>
+                <div class="column center" style="top: 150%;">
+                    <button>
+                        Continuer
+                    </button>
+                </div>
+            </div>
+        </form> 
+    </div>
+</body>
+</html>

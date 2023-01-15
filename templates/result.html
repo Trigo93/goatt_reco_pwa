@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+    <title>String recommendations</title>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}").then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <div style="width: 20%; padding: 5px; border-style: solid;">
+            <div>
+                <span>
+                    <b>Age:</b> {{ data["age"] }} ans
+                </span>
+            </div>
+            <div>
+                <span>
+                    <b>Fréquence de jeu:</b> {{ data["play_freq"] }}
+                </span>
+            </div>
+            <div>
+                <span>
+                    <b>Fréquence de casse:</b> {{ data["break_freq"] }}
+                </span>
+            </div>
+            <div>
+                <span>
+                    <b>Objectif:</b> {{ data["goal"] }}
+                </span>
+            </div>
+            <div>
+                <span>
+                    <b>Blessure:</b> {{ data["injury"] }}
+                </span>
+            </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <img style="width:100%" src='{{ results["string_1"]["image"] }}' alt="reco1">
+            <ul>
+                <li> {{ results["string_1"]["name"] }} </li>
+                <li> Prix: {{ results["string_1"]["price"] }}€ </li>
+                <li> Description:{{ results["string_1"]["description"] }} </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <img style="width:100%" src='{{ results["string_2"]["image"] }}' alt="reco2">
+            <ul>
+                <li> {{ results["string_2"]["name"] }} </li>
+                <li> Prix: {{ results["string_2"]["price"] }}€ </li>
+                <li> Description:{{ results["string_2"]["description"] }} </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <img style="width:100%" src='{{ results["string_3"]["image"] }}' alt="reco3">
+            <ul>
+                <li> {{ results["string_3"]["name"] }} </li>
+                <li> Prix: {{ results["string_3"]["price"] }}€ </li>
+                <li> Description:{{ results["string_3"]["description"] }} </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
