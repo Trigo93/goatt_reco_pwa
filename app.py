@@ -134,8 +134,13 @@ def process(data):
 
 # Flask routes
 @app.route("/")
-def hello():
-    return "<p>Welcome to Goatt string recommendation algorithm!</p>"
+def index():
+    return render_template('form.html')
+
+
+@app.route('/form/')
+def form():
+    return render_template('form.html')
 
 
 @app.route('/algorithm/', methods=['POST', 'GET'])
@@ -168,11 +173,6 @@ def algorithm():
                    input=data,
                    message="Invalid input data" if (reco < 0) else strings,
                    reco=reco), 200
-
-
-@app.route('/form/')
-def form():
-    return render_template('form.html')
 
 
 @app.route('/recommendation/', methods=['POST', 'GET'])
