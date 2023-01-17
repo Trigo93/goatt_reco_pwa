@@ -214,3 +214,6 @@ def recommendation():
                        reco=reco), 400
 
     return render_template('result.html', data=data, results=strings)
+
+if __name__ == '__main__':
+    app.run()
