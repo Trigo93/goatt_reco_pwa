@@ -7,7 +7,6 @@
     <!-- TODO: Use different icon sizes -->
     <link rel="icon" href="{{url_for('static', filename='icons/app.png')}}" type="image/png">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-    <script src="{{ url_for('static', filename='prompt.js') }}"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
@@ -72,5 +71,7 @@
             </div>
         </form> 
     </div>
+    <!-- JS scripts to be loaded after html (to seek element for instance -->    
+    <script src="{{ url_for('static', filename='prompt.js') }}"></script>
 </body>
 </html>
