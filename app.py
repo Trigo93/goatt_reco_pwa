@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, url_for, send_file
+from flask import Flask, request, jsonify, render_template
 from pyairtable import Table
 import os
 
@@ -209,11 +209,6 @@ def recommendation():
                        reco=reco), 400
 
     return render_template('result.html', data=data, results=strings)
-
-# PWA requirements
-@app.route('static/manifest.json'))
-def manifest():
-    return send_file('static/manifest.json'), mimetype='application/manifest+json')
 
 if __name__ == '__main__':
     app.run()
