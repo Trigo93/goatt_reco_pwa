@@ -212,7 +212,7 @@ def recommendation():
 
 # PWA requirements
 #@app.route('/static/sw.js')
-#def serve_static(filename):
+#def serve_static():
 #    return send_from_directory('static', 'sw.js')
 
 if __name__ == '__main__':
