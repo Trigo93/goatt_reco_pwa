@@ -211,9 +211,10 @@ def recommendation():
     return render_template('result.html', data=data, results=strings)
 
 # PWA requirements
-@app.route(url_for('static', filename='manifest.json'))
-def manifest():
-    return send_file(url_for('static', filename='manifest.json'), mimetype='application/manifest+json')
+with app.app_context():
+    @app.route(url_for('static', filename='manifest.json'))
+    def manifest():
+        return send_file(url_for('static', filename='manifest.json'), mimetype='application/manifest+json')
 
 if __name__ == '__main__':
     app.run()
