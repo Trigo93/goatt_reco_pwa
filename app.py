@@ -133,11 +133,6 @@ def process(data):
 
 
 # Flask routes
-@app.route('/sw.js')
-def sw():
-    return app.send_static_file('sw.js')
-
-
 @app.route("/")
 def index():
     return render_template('form.html')
