@@ -211,9 +211,9 @@ def recommendation():
     return render_template('result.html', data=data, results=strings)
 
 # PWA requirements
-@app.route('/static/sw.js')
-def serve_static(filename):
-    return send_from_directory('static', 'sw.js')
+#@app.route('/static/sw.js')
+#def serve_static(filename):
+#    return send_from_directory('static', 'sw.js')
 
 if __name__ == '__main__':
     app.run()
