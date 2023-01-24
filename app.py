@@ -138,11 +138,6 @@ def index():
     return render_template('form.html')
 
 
-@app.route('/form/')
-def form():
-    return render_template('form.html')
-
-
 @app.route('/algorithm/', methods=['POST', 'GET'])
 def algorithm():
     if request.method == 'GET':
