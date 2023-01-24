@@ -8,11 +8,11 @@
     <title>String recommendations</title>
     <!-- TODO: Use different icon sizes -->
     <link rel="icon" href="{{url_for('static', filename='icons/app.png')}}" type="image/png">
-    <link rel="manifest" href="{{ url_for('index', filename='manifest.json') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register("{{ url_for('index', filename='sw.js') }}").then(function(registration) {
+          navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}").then(function(registration) {
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }, function(err) {
             console.log('ServiceWorker registration failed: ', err);
