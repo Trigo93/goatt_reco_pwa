@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from pyairtable import Table
 import os
 
@@ -209,6 +209,11 @@ def recommendation():
                        reco=reco), 400
 
     return render_template('result.html', data=data, results=strings)
+
+# PWA requirements
+@app.route('/static/sw.js')
+def serve_static(filename):
+    return send_from_directory('static', 'sw.js')
 
 if __name__ == '__main__':
     app.run()
