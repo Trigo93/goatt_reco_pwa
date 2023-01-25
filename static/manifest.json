@@ -2,6 +2,7 @@
   "name": "Goatt Reco Progressive Web App",
   "short_name": "Goatt Reco",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#ffffff",
