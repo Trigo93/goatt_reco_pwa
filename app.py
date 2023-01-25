@@ -211,13 +211,13 @@ def recommendation():
     return render_template('result.html', data=data, results=strings)
 
 # PWA requirements
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    if filename.endswith('.js'):
-        mimetype = 'application/javascript'
-    else:
-        mimetype = 'application/octet-stream'
-    return send_from_directory('static', filename, mimetype=mimetype)
+#@app.route('/static/<path:filename>')
+#def serve_static(filename):
+#    if filename.endswith('.js'):
+#        mimetype = 'application/javascript'
+#    else:
+#        mimetype = 'application/octet-stream'
+#    return send_from_directory('static', filename, mimetype=mimetype)
 
 if __name__ == '__main__':
     app.run()
