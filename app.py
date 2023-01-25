@@ -213,7 +213,7 @@ def recommendation():
 # PWA requirements
 @app.route('/sw.js')
 def service_worker():
-    response = make_response(send_from_directory('static', filename='service_worker.js'))
+    response = make_response(send_from_directory('static', filename='sw.js'))
     response.headers['Content-Type'] = 'application/javascript'
     response.headers['Service-Worker-Allowed'] = '/'
     return response
