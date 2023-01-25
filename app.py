@@ -216,7 +216,7 @@ def service_worker():
     return send_from_directory('static', filename='sw.js', mimetype='application/javascript')
 
 @app.route('/manifest.json')
-def service_worker():
+def manifest():
     return send_from_directory('static', filename='manifest.json', mimetype='application/manifest+json')
 
 if __name__ == '__main__':
