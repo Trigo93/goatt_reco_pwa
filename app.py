@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, make_response, send_from_directory
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from pyairtable import Table
 import os
 
@@ -213,9 +213,9 @@ def recommendation():
 # PWA requirements
 @app.route('/sw.js')
 def service_worker():
-    response = make_response(send_from_directory('static', filename='sw.js'))
-    response.headers['Content-Type'] = 'application/javascript'
-    response.headers['Service-Worker-Allowed'] = '/'
+    response = send_from_directory('static', filename='sw.js')
+    response.headers.add('Content-Type', 'application/javascript')
+    response.headers.add('Service-Worker-Allowed', '/')
     return response
 
 if __name__ == '__main__':
