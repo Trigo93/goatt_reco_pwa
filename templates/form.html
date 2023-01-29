@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title> Goatt recommendation form </title>
+    <meta name="description" content="recommendation.">
+    <meta name="theme-color" content="#ffffff"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Recommendation form">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
-    <title>String recommendations</title>
-    <!-- TODO: Use different icon sizes -->
-    <link rel="icon" href="{{url_for('static', filename='icons/app.png')}}" type="image/png">
+    <link rel="icon" href="{{url_for('static', filename='icons/app_144x144.png')}}" type="image/png">
+    <link rel="icon" href="{{url_for('static', filename='icons/app_192x192.png')}}" type="image/png">
+    <link rel="icon" href="{{url_for('static', filename='icons/app_512x512.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='icons/app_144x144.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='icons/app_192x192.png')}}" type="image/png">
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='icons/app_512x512.png')}}" type="image/png">
     <link rel="manifest" href="/manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register("/sw.js").then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
 </head>
 <body>
-    <button id="pwaa">App</button>
+    <!-- TODO: Fix tap target sizes for SEO best practices -->
     <div class="container">
         <form action="{{ url_for('recommendation') }}" method="post">
             <div class="row center" style="width: 80%;">
@@ -62,8 +76,5 @@
             </div>
         </form> 
     </div>
-    <!-- JS scripts to be loaded after html (to seek element for instance) -->    
-    <script src="{{ url_for('static', filename='prompt.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='register.js') }}"></script>
 </body>
 </html>
